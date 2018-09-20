@@ -1,0 +1,44 @@
+extends ../layout/layout.pug
+
+block headContent
+    title pug
+body
+    -var mySkills=['php','mongo','sass']
+
+
+    - var myTitle = 'hey everyone'
+
+
+
+    if myTitle
+        h1 #{myTitle}
+        p(class='myP', id='myPID') This is a paragraph
+
+    else
+        h1 we have no title
+
+    ul
+        each val in mySkills
+            li=val
+
+    mixin paragraph
+        p hello
+    mixin paragraph2(myContent)
+        p= myContent
+    +paragraph2('Hey, how is it going?')
+    div(style={colour: 'gray', background: 'black'})
+    form(action='', method='POST')
+        mixin formText(textID, textValue)
+            label(for=textID)=textValue
+            label(type='text', name= textID, id= textID)
+
+        +formText('firstName', 'First Name:')
+        +formText('lastName', 'Last Name:')
+
+        label(for='myList') Occupation:
+        select(id='myList', name='myList')
+            option(value='designer') Designer
+            option(value='developer') Developer
+            option(value='tester') Tester
+            option(value='consultant') Consultan
+    each i

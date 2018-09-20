@@ -1,0 +1,20 @@
+extends ../layout/layout.pug
+include ../includes/mixins.pug
+
+block headContent
+        title pug
+block bodyContent
+        h1 myTitle
+        p(class='myP', id='myPID') This is a paragraph
+
+        form(action='', method='POST')
+
+            +formText('firstName', 'First Name:')
+            +formText('lastName', 'Last Name:')
+
+            label(for='myList') Occupation:
+            select(id='myList', name='myList')
+                option(value='designer') Designer
+                option(value='developer') Developer
+                option(value='tester') Tester
+                option(value='consultant') Consultant
